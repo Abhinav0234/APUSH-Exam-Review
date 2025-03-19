@@ -1,112 +1,246 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>APUSH Review</title>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-}
-#mindmap {
-  display: block;
-  width: 100vw;
-  height: 100vh;
-}
-</style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.18/dist/katex.min.css">
+  <meta charset="UTF-8">
+  <title>AP US History Exam Review</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+    }
+    #markmap {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.2.7"></script>
 </head>
 <body>
-<svg id="mindmap"></svg>
-<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.10/dist/browser/index.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/index.js"></script>
-<script>
-(e => {
-  window.WebFontConfig = {
-    custom: {
-      families: ["KaTeX_AMS", "KaTeX_Caligraphic:n4,n7", "KaTeX_Fraktur:n4,n7", "KaTeX_Main:n4,n7,i4,i7", "KaTeX_Math:i4,i7", "KaTeX_Script", "KaTeX_SansSerif:n4,n7,i4", "KaTeX_Size1", "KaTeX_Size2", "KaTeX_Size3", "KaTeX_Size4", "KaTeX_Typewriter"]
-    },
-    active: () => {
-      e().refreshHook.call()
-    }
-  }
-})(() => window.markmap)
-</script>
-<script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" defer></script>
-<script>
-(() => {
-  setTimeout(() => {
-    const { markmap: x, mm: K } = window,
-      P = new x.Toolbar;
-    P.attach(K);
-    const F = P.render();
-    F.setAttribute("style", "position:absolute;bottom:20px;right:20px"),
-      document.body.append(F)
-  })
-})()
-</script>
-<script>
-((b, L, T, D) => {
-  const H = b();
-  window.mm = H.Markmap.create("svg#mindmap", (L || H.deriveOptions)(D), T)
-})(() => window.markmap, null, {
-  "content": "APUSH Review",
-  "children": [
-    {
-      "content": "Colonial America",
-      "children": [
-        { "content": "Jamestown", "children": [] },
-        { "content": "Plymouth", "children": [] },
-        { "content": "13 Colonies", "children": [] }
-      ]
-    },
-    {
-      "content": "American Revolution",
-      "children": [
-        { "content": "Causes", "children": [] },
-        { "content": "Key Battles", "children": [] },
-        { "content": "Declaration of Independence", "children": [] }
-      ]
-    },
-    {
-      "content": "Constitution and Early Republic",
-      "children": [
-        { "content": "Articles of Confederation", "children": [] },
-        { "content": "Constitutional Convention", "children": [] },
-        { "content": "Bill of Rights", "children": [] }
-      ]
-    },
-    {
-      "content": "Civil War and Reconstruction",
-      "children": [
-        { "content": "Causes of the Civil War", "children": [] },
-        { "content": "Major Battles", "children": [] },
-        { "content": "Reconstruction Era", "children": [] }
-      ]
-    },
-    {
-      "content": "20th Century",
-      "children": [
-        { "content": "World War I", "children": [] },
-        { "content": "Great Depression", "children": [] },
-        { "content": "World War II", "children": [] },
-        { "content": "Cold War", "children": [] }
-      ]
-    },
-    {
-      "content": "Modern America",
-      "children": [
-        { "content": "Civil Rights Movement", "children": [] },
-        { "content": "Vietnam War", "children": [] },
-        { "content": "Recent Presidents", "children": [] }
-      ]
-    }
-  ]
-});
-</script>
+  <div id="markmap"></div>
+  <script>
+    const markdown = `
+# AP US History Exam Review
+
+## Period 1: 1491-1607
+### Native American Societies
+- Complex civilizations (Aztec, Maya, Inca)
+- North American tribes and regional differences
+- Agricultural practices and trade networks
+
+### European Exploration
+- Columbus and the Columbian Exchange
+- Spanish conquistadors and colonization
+- French and Dutch exploration
+- English early attempts (Roanoke)
+
+### Contact and Conflict
+- Disease impact on indigenous populations
+- Early labor systems
+- Cultural exchange and conflicts
+
+## Period 2: 1607-1754
+### Colonial Regions
+- New England colonies (religious focus)
+- Middle colonies (diverse, trade-centered)
+- Southern colonies (plantation economy)
+
+### Colonial Society
+- Triangular trade and mercantilism
+- Slavery development
+- Religious movements (Great Awakening)
+- Enlightenment influences
+
+### Colonial Politics
+- Self-government development
+- Relationship with Britain
+- Navigation Acts
+
+## Period 3: 1754-1800
+### Road to Revolution
+- French & Indian War (Seven Years' War)
+- British taxation (Stamp Act, Townshend Acts)
+- Boston Massacre and Tea Party
+- First Continental Congress
+
+### American Revolution
+- Declaration of Independence
+- Key battles and military strategy
+- Foreign assistance (France)
+- Treaty of Paris (1783)
+
+### Early Republic
+- Articles of Confederation
+- Constitutional Convention
+- Federalist vs. Anti-Federalist debates
+- Washington's presidency
+- Rise of political parties
+
+## Period 4: 1800-1848
+### Jeffersonian Era
+- Election of 1800
+- Louisiana Purchase
+- War of 1812
+- Marshall Court
+
+### Market Revolution
+- Transportation revolution
+- Industrial development
+- Urbanization
+- Second Great Awakening
+
+### Age of Jackson
+- Election of 1828
+- Bank War
+- Native American removal
+- Rise of reform movements (abolitionism, women's rights)
+
+### Westward Expansion
+- Manifest Destiny
+- Mexican-American War
+- Oregon Territory
+
+## Period 5: 1844-1877
+### Sectional Tensions
+- Compromise of 1850
+- Kansas-Nebraska Act
+- Dred Scott decision
+- Lincoln-Douglas debates
+
+### Civil War
+- Secession and Fort Sumter
+- Military strategies and key battles
+- Emancipation Proclamation
+- Home front experiences
+
+### Reconstruction
+- Lincoln's plans
+- Johnson vs. Radical Republicans
+- Constitutional amendments (13th, 14th, 15th)
+- End of Reconstruction
+
+## Period 6: 1865-1898
+### Industrialization
+- Railroad expansion
+- Rise of corporations
+- Labor movements
+- Immigration waves
+
+### Gilded Age Politics
+- Political machines
+- Political corruption
+- Civil service reform
+- Populist movement
+
+### The West
+- Mining and farming frontiers
+- Native American conflicts
+- End of the frontier
+
+## Period 7: 1890-1945
+### Progressive Era
+- Social and political reforms
+- Muckrakers
+- Roosevelt, Taft, and Wilson presidencies
+- Constitutional amendments (16th, 17th, 18th, 19th)
+
+### American Imperialism
+- Spanish-American War
+- Philippine-American War
+- Panama Canal
+- Dollar Diplomacy
+
+### World War I
+- Neutrality to intervention
+- American Expeditionary Force
+- Home front mobilization
+- Treaty of Versailles and League of Nations
+
+### 1920s
+- Economic prosperity
+- Cultural changes
+- Harlem Renaissance
+- Prohibition and social tensions
+
+### Great Depression & New Deal
+- Causes of the Depression
+- Hoover's response
+- FDR and New Deal programs
+- New Deal coalition
+
+### World War II
+- Road to war
+- American strategy
+- Home front mobilization
+- Manhattan Project and atomic bombs
+
+## Period 8: 1945-1980
+### Early Cold War
+- Origins and ideology
+- Containment policy
+- Korean War
+- McCarthyism
+
+### 1950s America
+- Economic prosperity
+- Suburbanization
+- Civil Rights movement begins
+- Eisenhower's presidency
+
+### The 1960s
+- Kennedy and Johnson
+- Great Society
+- Civil Rights movement peak
+- Vietnam War escalation
+- Counterculture and social movements
+
+### The 1970s
+- Nixon and Watergate
+- Détente
+- Economic challenges
+- Carter presidency
+
+## Period 9: 1980-Present
+### Conservative Resurgence
+- Reagan Revolution
+- Supply-side economics
+- Cold War final phase
+- Social conservatism
+
+### End of Cold War
+- Fall of Soviet Union
+- New world order
+- Gulf War
+
+### Turn of the Century
+- Clinton presidency
+- Technology boom
+- Globalization
+- 9/11 and War on Terror
+
+### Recent Developments
+- Great Recession
+- Obama presidency
+- Political polarization
+- Contemporary social movements
+
+## Thematic Review
+### American and National Identity
+### Politics and Power
+### Work, Exchange, and Technology
+### Culture and Society
+### Migration and Settlement
+### Geography and the Environment
+### America in the World
+`;
+
+    // Create markmap
+    const { Markmap, loadCSS, loadJS } = window.markmap;
+    const r = new markmap.Transformer();
+    const { root, features } = r.transform(markdown);
+    const mm = Markmap.create("#markmap", null, root);
+  </script>
 </body>
 </html>
